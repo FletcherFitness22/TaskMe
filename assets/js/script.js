@@ -1,5 +1,5 @@
 // Retrieve tasks and nextId from localStorage
-let taskList = JSON.parse(localStorage.getItem("tasks"));
+let taskList = JSON.parse(localStorage.getItem("tasks"))||[]
 let nextId = JSON.parse(localStorage.getItem("nextId"));
 
 // Todo: create a function to generate a unique task id
@@ -19,8 +19,20 @@ function renderTaskList() {
 
 // Todo: create a function to handle adding a new task
 function handleAddTask(event){
-
+  event.preventDefault()
+const title=document.getElementById("taskTitle").value
+const description=document.getElementById("taskDescription").value
+const date=document.getElementById("taskDueDate").value
+const task={
+  title:title, 
+  description:description,
+  date:date,
+  status:"todo"
+} 
+taskList.push(task)
+localStorage.setItem("tasks",JSON.stringify(taskList))
 }
+
 
 // Todo: create a function to handle deleting a task
 function handleDeleteTask(event){
@@ -37,26 +49,27 @@ $(document).ready(function () {
 
 });
 
-
-const dayjs = require('dayjs');
+let taskForm= document.getElementById("taskForm") 
+taskForm.addEventListener("click",handleAddTask)
+//const dayjs = require('dayjs');
 
 const myModal = document.getElementById('myModal')
 const myInput = document.getElementById('myInput')
 
-myModal.addEventListener('shown.bs.modal', () => {
-  myInput.focus()
-})
+// myModal.addEventListener('shown.bs.modal', () => {
+//   myInput.focus()
+// })
 
 const showBtn = document.getElementById("show-dialog");
 const dialog = document.getElementById("dialog");
-const jsCloseBtn = dialog.querySelector("#js-close");
+//const jsCloseBtn = dialog.querySelector("#js-close");
 
-showBtn.addEventListener("click", () => {
-  dialog.showModal();
-});
+// showBtn.addEventListener("click", () => {
+//   dialog.showModal();
+// });
 
-jsCloseBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-  dialog.close();
-});
+// jsCloseBtn.addEventListener("click", (e) => {
+//   e.preventDefault();
+//   dialog.close();
+// });
 
