@@ -4,12 +4,12 @@ let nextId = JSON.parse(localStorage.getItem("nextId"));
 
 // Todo: create a function to generate a unique task id
 function generateTaskId() {
-
+addEventListener (adding,handleDeleteTask,DragEvent);
 }
 
 // Todo: create a function to create a task card
 function createTaskCard(task) {
-
+sortable()
 }
 
 // Todo: create a function to render the task list and make cards draggable
@@ -36,3 +36,27 @@ function handleDrop(event, ui) {
 $(document).ready(function () {
 
 });
+
+
+const dayjs = require('dayjs');
+
+const myModal = document.getElementById('myModal')
+const myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', () => {
+  myInput.focus()
+})
+
+const showBtn = document.getElementById("show-dialog");
+const dialog = document.getElementById("dialog");
+const jsCloseBtn = dialog.querySelector("#js-close");
+
+showBtn.addEventListener("click", () => {
+  dialog.showModal();
+});
+
+jsCloseBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  dialog.close();
+});
+
