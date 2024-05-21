@@ -19,5 +19,5 @@ THEN the saved tasks persist
 
 ## How it is
 
-
+After additional commits I learned that I was coding in the wrong relation in terms of the way I was creating the javascript. 
 
